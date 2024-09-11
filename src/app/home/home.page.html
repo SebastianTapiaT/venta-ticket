@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ticket-plop
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bienvenido a Ticket-plop</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Compra tus entradas </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Elige entre una variedad de eventos, desde cine hasta conciertos.</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" routerLink="/event-list">
+      Ver eventos disponibles
+    </ion-button>
+  </div>
+</ion-content>

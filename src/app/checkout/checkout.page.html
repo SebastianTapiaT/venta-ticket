@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="customerName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input [(ngModel)]="customerLastName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Edad</ion-label>
+    <ion-input [(ngModel)]="customerAge" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad de Entradas</ion-label>
+    <ion-input [(ngModel)]="quantity" type="number" min="1"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio Final</ion-label>
+    <ion-note>{{ finalPrice }} CLP</ion-note>
+  </ion-item>
+
+  <ion-button expand="block" (click)="completePurchase()">Completar Compra</ion-button>
+</ion-content>

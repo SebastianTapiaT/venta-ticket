@@ -1,0 +1,7 @@
+{
+  "name": "ticket-plop-APP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
