@@ -1,34 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Checkout</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input [(ngModel)]="customerName"></ion-input>
-  </ion-item>
+<ion-content>
+  <form (submit)="completePurchase()">
+    
+    <!-- Nombre del cliente -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="customerName" name="name" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Apellido</ion-label>
-    <ion-input [(ngModel)]="customerLastName"></ion-input>
-  </ion-item>
+    <!-- Apellido del cliente -->
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="customerLastName" name="lastName" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Edad</ion-label>
-    <ion-input [(ngModel)]="customerAge" type="number"></ion-input>
-  </ion-item>
+    <!-- Edad del cliente -->
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input [(ngModel)]="customerAge" type="number" name="age" required (ngModelChange)="calculateFinalPrice()"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Cantidad de Entradas</ion-label>
-    <ion-input [(ngModel)]="quantity" type="number" min="1"></ion-input>
-  </ion-item>
+    <!-- Cantidad de Entradas -->
+    <ion-item>
+      <ion-label position="floating">Cantidad de Entradas</ion-label>
+      <ion-input [(ngModel)]="quantity" type="number" min="1" name="quantity" required (ngModelChange)="calculateFinalPrice()"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Precio Final</ion-label>
-    <ion-note>{{ finalPrice }} CLP</ion-note>
-  </ion-item>
+    <!-- Mostrar el Precio Final -->
+    <ion-item>
+      <ion-label>Precio Final</ion-label>
+      <ion-input [value]="finalPrice | currency:'CLP':'symbol-narrow'" readonly></ion-input>
+    </ion-item>
 
-  <ion-button expand="block" (click)="completePurchase()">Completar Compra</ion-button>
+    <!-- Botón para completar la compra -->
+    <ion-button expand="block" type="submit">COMPLETAR COMPRA</ion-button>
+
+  </form>
 </ion-content>
